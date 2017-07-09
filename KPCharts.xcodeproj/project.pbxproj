@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1FC8151EF9F34700B18623 /* AppDelegate.swift */; };
-		0C1FC8181EF9F34700B18623 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1FC8171EF9F34700B18623 /* ViewController.swift */; };
 		0C1FC81B1EF9F34700B18623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FC8191EF9F34700B18623 /* Main.storyboard */; };
 		0C1FC81D1EF9F34700B18623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FC81C1EF9F34700B18623 /* Assets.xcassets */; };
 		0C1FC8201EF9F34700B18623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FC81E1EF9F34700B18623 /* LaunchScreen.storyboard */; };
+		0C4423F81EFA0A61005F7153 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423F71EFA0A61005F7153 /* SignInViewController.swift */; };
+		0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */; };
+		0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */; };
+		0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */; };
+		0CD05BFB1EFCB236006EB56B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */; };
+		0CD05BFD1EFCB61E006EB56B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD05BFC1EFCB61E006EB56B /* TableViewController.swift */; };
+		0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */; };
+		D3CAB0E463A3AD9C8424DBB0 /* Pods_KPCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B29506E4B335757734DBA /* Pods_KPCharts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C1FC8121EF9F34700B18623 /* KPCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1FC8151EF9F34700B18623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0C1FC8171EF9F34700B18623 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0C1FC81A1EF9F34700B18623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C1FC81C1EF9F34700B18623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C1FC81F1EF9F34700B18623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C1FC8211EF9F34700B18623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C4423F71EFA0A61005F7153 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
+		0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0CD05BFC1EFCB61E006EB56B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsTableViewCell.swift; sourceTree = "<group>"; };
+		688B29506E4B335757734DBA /* Pods_KPCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.release.xcconfig"; sourceTree = "<group>"; };
+		F41C3757932298E3EF06EB29 /* Pods-KPCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3CAB0E463A3AD9C8424DBB0 /* Pods_KPCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +57,8 @@
 			children = (
 				0C1FC8141EF9F34700B18623 /* KPCharts */,
 				0C1FC8131EF9F34700B18623 /* Products */,
+				EFAFE1A878FE4AC1BA18BC74 /* Pods */,
+				886204A0AC7FC85098AC15E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +73,53 @@
 		0C1FC8141EF9F34700B18623 /* KPCharts */ = {
 			isa = PBXGroup;
 			children = (
-				0C1FC8151EF9F34700B18623 /* AppDelegate.swift */,
-				0C1FC8171EF9F34700B18623 /* ViewController.swift */,
+				0C972FF01F05DF7900E4B834 /* Controllers */,
+				0CD05C001F01C4F6006EB56B /* Views */,
 				0C1FC8191EF9F34700B18623 /* Main.storyboard */,
 				0C1FC81C1EF9F34700B18623 /* Assets.xcassets */,
 				0C1FC81E1EF9F34700B18623 /* LaunchScreen.storyboard */,
 				0C1FC8211EF9F34700B18623 /* Info.plist */,
+				0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */,
+				0CD05BFC1EFCB61E006EB56B /* TableViewController.swift */,
 			);
 			path = KPCharts;
+			sourceTree = "<group>";
+		};
+		0C972FF01F05DF7900E4B834 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */,
+				0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */,
+				0C4423F71EFA0A61005F7153 /* SignInViewController.swift */,
+				0C1FC8151EF9F34700B18623 /* AppDelegate.swift */,
+				0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0CD05C001F01C4F6006EB56B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		886204A0AC7FC85098AC15E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				688B29506E4B335757734DBA /* Pods_KPCharts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EFAFE1A878FE4AC1BA18BC74 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F41C3757932298E3EF06EB29 /* Pods-KPCharts.debug.xcconfig */,
+				EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +129,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C1FC8241EF9F34700B18623 /* Build configuration list for PBXNativeTarget "KPCharts" */;
 			buildPhases = (
+				DD5903CE098359F3ED293AEA /* [CP] Check Pods Manifest.lock */,
 				0C1FC80E1EF9F34700B18623 /* Sources */,
 				0C1FC80F1EF9F34700B18623 /* Frameworks */,
 				0C1FC8101EF9F34700B18623 /* Resources */,
+				F5911444C1F7F8F2361B5FA3 /* [CP] Embed Pods Frameworks */,
+				E3B1F5BBCD7114EE18949EDC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C1FC8201EF9F34700B18623 /* LaunchScreen.storyboard in Resources */,
+				0CD05BFB1EFCB236006EB56B /* GoogleService-Info.plist in Resources */,
 				0C1FC81D1EF9F34700B18623 /* Assets.xcassets in Resources */,
 				0C1FC81B1EF9F34700B18623 /* Main.storyboard in Resources */,
 			);
@@ -131,13 +193,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DD5903CE098359F3ED293AEA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E3B1F5BBCD7114EE18949EDC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5911444C1F7F8F2361B5FA3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0C1FC80E1EF9F34700B18623 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C1FC8181EF9F34700B18623 /* ViewController.swift in Sources */,
+				0CD05BFD1EFCB61E006EB56B /* TableViewController.swift in Sources */,
 				0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */,
+				0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */,
+				0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */,
+				0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */,
+				0C4423F81EFA0A61005F7153 /* SignInViewController.swift in Sources */,
+				0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +373,7 @@
 		};
 		0C1FC8251EF9F34700B18623 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F41C3757932298E3EF06EB29 /* Pods-KPCharts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G3R5J2YQ9F;
@@ -271,6 +387,7 @@
 		};
 		0C1FC8261EF9F34700B18623 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G3R5J2YQ9F;
@@ -301,6 +418,7 @@
 				0C1FC8261EF9F34700B18623 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>198976532521-1ph9jfo826bmdkgrktpr6gqhuvkdveh0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.198976532521-1ph9jfo826bmdkgrktpr6gqhuvkdveh0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDwaTlkXavF3IJ3yZUZzpWP5VoxxyjXunA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>198976532521</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.michaelmerani.KPCharts</string>
+	<key>PROJECT_ID</key>
+	<string>kp-charts</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kp-charts.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:198976532521:ios:3bbee401a9fe3483</string>
+	<key>DATABASE_URL</key>
+	<string>https://kp-charts.firebaseio.com</string>
+</dict>
+</plist>

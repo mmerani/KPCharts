@@ -7,16 +7,36 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
+        [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        FIRApp.configure()
+        
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barTintColor = UIColor(red: 60/255, green: 174/255, blue: 85/255, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        let checkStatus = isLoggedIn()
+        if checkStatus == false {
+            let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+            let loginView = storyboard.instantiateViewController(withIdentifier: "loginView")
+            self.window?.makeKeyAndVisible()
+            self.window?.rootViewController?.present(loginView, animated: false, completion: nil)
+        }
         return true
+    }
+    
+    func isLoggedIn() -> Bool {
+        return UserDefaults.standard.bool(forKey: "isLoggedIn")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
