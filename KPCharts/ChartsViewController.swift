@@ -13,6 +13,14 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var lblLeft: UILabel!
     @IBOutlet weak var lblRight: UILabel!
+    @IBOutlet weak var btnClose: UIButton!
+    @IBOutlet weak var btnAdd: UIButton!
+    @IBOutlet weak var lblAverages: UILabel!
+    @IBOutlet weak var btnSave: UIButton!
+    
+    var avgDistance = 0.0
+    var avgHangtime = 0.0
+    
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -34,12 +42,11 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
             lblLeft.text = "Distance"
             lblRight.text = "Hangtime"
         }
-        
-        //tableView.register(ChartsTableViewCell.self, forCellReuseIdentifier: "FirstCell")
-        //tableView.register(ChartsTableViewCell.self, forCellReuseIdentifier: "Cell")
+        btnSave.layer.cornerRadius = 2
+        btnClose.setImage(UIImage(named: "iconDelete")?.tintWithColor(color: UIColor.white), for: .normal)
+        btnAdd.setImage(UIImage(named: "iconAdd")?.tintWithColor(color: UIColor.white), for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
-       // self.view.backgroundColor = .white
         
     }
     
@@ -52,10 +59,34 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     @IBAction func tappedInsert(_ sender: Any) {
         items.append("")
         let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
+        calculateAverages()
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
         tableView.reloadData()
     }
     
+    func calculateAverages(){
+        let cells = tableView.visibleCells
+        
+        self.avgDistance = 0.0
+        self.avgHangtime = 0.0
+        for cell in cells {
+            let customCell = cell as! ChartsTableViewCell
+            let yards = Double(customCell.txtFieldYards.text!)
+            let hangtime = Double(customCell.txtFieldHangtime.text!)
+            self.avgDistance += yards!
+            self.avgHangtime += hangtime!
+            print("Yards: \(self.avgDistance) Hangtime: \(self.avgHangtime)")
+        }
+        print("Cell count: \(cells.count)")
+        self.avgDistance = self.avgDistance/Double(cells.count)
+        self.avgHangtime = self.avgHangtime/Double(cells.count)
+        lblAverages.text = "Yards:\(self.avgDistance) Time:\(self.avgHangtime)"
+    }
+    
+    @IBAction func tappedSave(_ sender: Any) {
+        
+    }
+  
     //MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -71,14 +102,15 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if(indexPath.row == 0){
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "FirstCell", for: indexPath as IndexPath) as! ChartsTableViewCell
-//            return cell
-//
-//        } else {
+        
+        if chartType == "Punts" || chartType == "Kickoffs" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! ChartsTableViewCell
             return cell
-    //    }
+
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "KickCell", for: indexPath as IndexPath) as! ChartsTableViewCell
+            return cell
+       }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

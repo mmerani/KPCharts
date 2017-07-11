@@ -9,9 +9,13 @@
 import UIKit
 
 class ChartsTableViewCell: UITableViewCell {
+    @IBOutlet weak var txtFieldYards: UITextField!
 
-    @IBOutlet weak var lblCount: UILabel!
-
+    @IBOutlet weak var txtFieldHangtime: UITextField!
+    
+    @IBOutlet weak var txtFieldKickYards: UITextField!
+    @IBOutlet weak var makeOrMiss: UISegmentedControl!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

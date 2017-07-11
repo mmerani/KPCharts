@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1238161F12B5EC00CA8C6C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1238151F12B5EC00CA8C6C /* Util.swift */; };
 		0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1FC8151EF9F34700B18623 /* AppDelegate.swift */; };
 		0C1FC81B1EF9F34700B18623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FC8191EF9F34700B18623 /* Main.storyboard */; };
 		0C1FC81D1EF9F34700B18623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FC81C1EF9F34700B18623 /* Assets.xcassets */; };
@@ -16,12 +17,12 @@
 		0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */; };
 		0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */; };
 		0CD05BFB1EFCB236006EB56B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */; };
-		0CD05BFD1EFCB61E006EB56B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD05BFC1EFCB61E006EB56B /* TableViewController.swift */; };
 		0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */; };
 		D3CAB0E463A3AD9C8424DBB0 /* Pods_KPCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B29506E4B335757734DBA /* Pods_KPCharts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C1238151F12B5EC00CA8C6C /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		0C1FC8121EF9F34700B18623 /* KPCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1FC8151EF9F34700B18623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C1FC81A1EF9F34700B18623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0CD05BFC1EFCB61E006EB56B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsTableViewCell.swift; sourceTree = "<group>"; };
 		688B29506E4B335757734DBA /* Pods_KPCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.release.xcconfig"; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 				0C1FC81E1EF9F34700B18623 /* LaunchScreen.storyboard */,
 				0C1FC8211EF9F34700B18623 /* Info.plist */,
 				0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */,
-				0CD05BFC1EFCB61E006EB56B /* TableViewController.swift */,
+				0C1238151F12B5EC00CA8C6C /* Util.swift */,
 			);
 			path = KPCharts;
 			sourceTree = "<group>";
@@ -246,9 +246,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CD05BFD1EFCB61E006EB56B /* TableViewController.swift in Sources */,
 				0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */,
 				0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */,
+				0C1238161F12B5EC00CA8C6C /* Util.swift in Sources */,
 				0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */,
 				0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */,
 				0C4423F81EFA0A61005F7153 /* SignInViewController.swift in Sources */,
