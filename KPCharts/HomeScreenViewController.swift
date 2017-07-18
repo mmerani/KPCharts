@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -17,10 +18,6 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     let pickerNames = ["Punts","Kicks","Kickoffs"]
     @IBOutlet weak var myTableView: UITableView!
     
-   override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +32,27 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         
         myTableView.backgroundColor = UIColor.white
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(loadChartData), for: .valueChanged)
+        myTableView.refreshControl = refreshControl
+        loadChartData()
+        
+    }
+    
+    func loadChartData(){
+        let uid = UserDefaults.standard.object(forKey: "uid") as! String
+        DataService.ds.findUserCharts(uid: uid) { (snapshot, error) in
+            if snapshot.childrenCount > 0 {
+                for charts in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                    print("Print: \(charts)")
+                }
+            } else {
+                print("No chart data")
+            }
+            self.myTableView.refreshControl?.endRefreshing()
+            self.myTableView.reloadData()
+        }
+
     }
     func createPicker() {
         // self.typePickerView.isHidden = true
@@ -60,6 +78,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     func selectedSignOut() {
         UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.set("",forKey: "uid")
         UserDefaults.standard.synchronize()
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         let loginView = storyboard.instantiateViewController(withIdentifier: "loginView")

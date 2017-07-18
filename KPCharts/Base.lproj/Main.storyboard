@@ -185,6 +185,7 @@
         <scene sceneID="yzl-nr-rk6">
             <objects>
                 <navigationController id="wk7-F5-eVD" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hEM-T8-I0S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -217,7 +218,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZDr-Ge-VNm" id="jDI-8F-m7K">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.67443770759999999" green="0.69505350749999995" blue="0.71143336739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
@@ -238,6 +239,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="myTableView" destination="PSA-G8-VgA" id="NEh-0p-TIU"/>
                     </connections>
@@ -541,7 +543,7 @@
                                     <constraint firstAttribute="width" constant="46" id="cFe-wX-aXa"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="iconDelete"/>
+                                <state key="normal" image="arrowDown"/>
                                 <connections>
                                     <action selector="tappedClose:" destination="4ox-c8-bLY" eventType="touchUpInside" id="tgT-n8-1JV"/>
                                 </connections>
@@ -575,8 +577,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowDown" width="25" height="25"/>
         <image name="iconChart" width="25" height="25"/>
-        <image name="iconDelete" width="25" height="25"/>
         <image name="iconPlus" width="25" height="25"/>
         <image name="lock" width="50" height="50"/>
         <image name="mainbackground" width="207" height="282"/>

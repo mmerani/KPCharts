@@ -8,4 +8,5 @@ target 'KPCharts' do
   # Pods for KPCharts
 pod ‘Firebase/Core’
 pod ‘Firebase/Auth’
+pod 'Firebase/Database'
 end

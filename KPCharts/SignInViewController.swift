@@ -98,7 +98,11 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             FIRAuth.auth()?.signIn(withEmail: email!, password: pwd!, completion: { (user, error) in
                 if error == nil {
                     print("MIKE: user authenticated with Firebase")
-                    self.finishSigningIn()
+                    if let user = user {
+                        let userData = ["email": user.email!]
+                        self.finishSigningIn(id: user.uid, userData: userData)
+                    }
+                    //self.finishSigningIn()
                     
                 } else {
                     // error code
@@ -108,10 +112,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
 
 
-    func finishSigningIn() {
+    func finishSigningIn(id: String, userData: Dictionary<String, String>) {
         //let mainHomeVC = HomeScreenViewController()
         //self.navigationController?.pushViewController(mainHomeVC,animated: true)
+        DataService.ds.createFirbaseDBUser(uid: id, userData: userData)
         UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        UserDefaults.standard.set(id, forKey: "uid")
         UserDefaults.standard.synchronize()
         dismiss(animated: true, completion: nil)
     }

@@ -16,6 +16,7 @@
 		0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */; };
 		0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */; };
 		0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */; };
+		0CCFDA041F1C19D500C5B022 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCFDA031F1C19D500C5B022 /* DataService.swift */; };
 		0CD05BFB1EFCB236006EB56B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */; };
 		0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */; };
 		D3CAB0E463A3AD9C8424DBB0 /* Pods_KPCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B29506E4B335757734DBA /* Pods_KPCharts.framework */; };
@@ -33,6 +34,7 @@
 		0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		0CCFDA031F1C19D500C5B022 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsTableViewCell.swift; sourceTree = "<group>"; };
 		688B29506E4B335757734DBA /* Pods_KPCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 		0C972FF01F05DF7900E4B834 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0CCFDA031F1C19D500C5B022 /* DataService.swift */,
 				0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */,
 				0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */,
 				0C4423F71EFA0A61005F7153 /* SignInViewController.swift */,
@@ -253,6 +256,7 @@
 				0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */,
 				0C4423F81EFA0A61005F7153 /* SignInViewController.swift in Sources */,
 				0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */,
+				0CCFDA041F1C19D500C5B022 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

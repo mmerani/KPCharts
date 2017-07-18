@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
@@ -20,13 +22,10 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     var avgDistance = 0.0
     var avgHangtime = 0.0
-    
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
+        
     var items = [""]
+    var dataSet = [Dictionary<String, Any>]()
+    var dataDict = [String: Any]()
     var chartType: String?
     
     override func viewDidLoad() {
@@ -43,7 +42,7 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
             lblRight.text = "Hangtime"
         }
         btnSave.layer.cornerRadius = 2
-        btnClose.setImage(UIImage(named: "iconDelete")?.tintWithColor(color: UIColor.white), for: .normal)
+        btnClose.setImage(UIImage(named: "arrowDown")?.tintWithColor(color: UIColor.white), for: .normal)
         btnAdd.setImage(UIImage(named: "iconAdd")?.tintWithColor(color: UIColor.white), for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
@@ -53,7 +52,14 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
    //MARK: Actions
     
     @IBAction func tappedClose(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title:"Are you sure?", message: "Chart will not be saved if you close", preferredStyle: .alert)
+        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func tappedInsert(_ sender: Any) {
@@ -69,22 +75,76 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         self.avgDistance = 0.0
         self.avgHangtime = 0.0
-        for cell in cells {
-            let customCell = cell as! ChartsTableViewCell
-            let yards = Double(customCell.txtFieldYards.text!)
-            let hangtime = Double(customCell.txtFieldHangtime.text!)
-            self.avgDistance += yards!
-            self.avgHangtime += hangtime!
-            print("Yards: \(self.avgDistance) Hangtime: \(self.avgHangtime)")
+        if chartType == "Punts" || chartType == "Kickoffs" {
+            for cell in cells {
+                let customCell = cell as! ChartsTableViewCell
+                let yards = Double(customCell.txtFieldYards.text!)
+                let hangtime = Double(customCell.txtFieldHangtime.text!)
+                self.avgDistance += yards!
+                self.avgHangtime += hangtime!
+            }
+            self.avgDistance = self.avgDistance/Double(cells.count)
+            self.avgHangtime = self.avgHangtime/Double(cells.count)
+            lblAverages.text = "Yards:\(self.avgDistance) Time:\(self.avgHangtime)"
+        } else {
+            var madeFgs = 0
+            var totalFgs = 0
+            for cell in cells {
+                let customCell = cell as! ChartsTableViewCell
+                let fraction = customCell.makeOrMiss.selectedSegmentIndex
+                totalFgs += 1
+                if fraction == 0 {
+                    madeFgs += 1
+                }
+            }
+            lblAverages.text = "Made: \(madeFgs)/\(totalFgs)"
         }
-        print("Cell count: \(cells.count)")
-        self.avgDistance = self.avgDistance/Double(cells.count)
-        self.avgHangtime = self.avgHangtime/Double(cells.count)
-        lblAverages.text = "Yards:\(self.avgDistance) Time:\(self.avgHangtime)"
     }
     
     @IBAction func tappedSave(_ sender: Any) {
+        let cells = tableView.visibleCells
         
+        self.avgDistance = 0.0
+        self.avgHangtime = 0.0
+        if chartType == "Punts" || chartType == "Kickoffs" {
+            for cell in cells {
+                let customCell = cell as! ChartsTableViewCell
+                let yards = Double(customCell.txtFieldYards.text!)
+                let hangtime = Double(customCell.txtFieldHangtime.text!)
+                dataDict["yards"] = yards
+                dataDict["time"] = hangtime
+                dataSet.append(dataDict)
+                print(dataSet)
+            }
+            let uid = UserDefaults.standard.object(forKey: "uid") as! String
+            let data = ["uid": uid,
+                            "chartType": self.chartType!,
+                            "chartData": dataSet as Array,
+                            "title": "Testing Title"] as [String : Any]
+            DataService.ds.setChartData(chartData: data, completion: { (success, error) in
+                if success {
+                    let alert = UIAlertController(title:nil, message: "Your charting has been saved!", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    print("Data not saved")
+                }
+            })
+           
+            
+        } else {
+            var madeFgs = 0
+            var totalFgs = 0
+            for cell in cells {
+                let customCell = cell as! ChartsTableViewCell
+                let fraction = customCell.makeOrMiss.selectedSegmentIndex
+                let yards = customCell.txtFieldKickYards.text
+            }
+        }
+
     }
   
     //MARK: UITableViewDelegate
@@ -120,8 +180,9 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             //if let deletionIndexPath = tableView.indexPath(for: cell){
-                self.items.remove(at: index.row)
-                tableView.deleteRows(at: [index], with: .automatic)
+            self.items.remove(at: index.row)
+            tableView.deleteRows(at: [index], with: .automatic)
+            self.calculateAverages()
             //}
         }
         delete.backgroundColor = UIColor.red
