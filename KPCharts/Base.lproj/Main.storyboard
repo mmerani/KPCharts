@@ -181,6 +181,86 @@
             </objects>
             <point key="canvasLocation" x="-18.399999999999999" y="846.02698650674665"/>
         </scene>
+        <!--Chart Setup Controller-->
+        <scene sceneID="AGK-Og-6hn">
+            <objects>
+                <viewController id="IXI-Ls-RjS" customClass="ChartSetupController" customModule="KPCharts" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YGd-Wb-EYI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oqa-sZ-gcd"/>
+                    </layoutGuides>
+                    <view key="view" alpha="0.75" contentMode="scaleToFill" id="KgK-iO-vFz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Au6-yM-Q7b" customClass="TwicketSegmentedControl" customModule="KPCharts" customModuleProvider="target">
+                                <rect key="frame" x="67" y="113" width="240" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="1xN-hC-uyb"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add a title..." borderStyle="bezel" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OAf-Bm-EQR">
+                                <rect key="frame" x="16" y="272" width="343" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wCm-xH-Z5i"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Xi-RD-koL">
+                                <rect key="frame" x="137" y="418" width="100" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="a8c-Oh-1p4"/>
+                                </constraints>
+                                <state key="normal" title="Begin">
+                                    <color key="titleColor" red="0.23459336159999999" green="0.68313717839999999" blue="0.3338845372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="tappedBegin:" destination="IXI-Ls-RjS" eventType="touchUpInside" id="g6W-TQ-VSN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8n-Lo-1mQ">
+                                <rect key="frame" x="16" y="20" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="w3O-bN-m9x"/>
+                                    <constraint firstAttribute="height" constant="25" id="xZw-eI-lKd"/>
+                                </constraints>
+                                <state key="normal" image="iconDelete"/>
+                                <connections>
+                                    <action selector="tappedClose:" destination="IXI-Ls-RjS" eventType="touchUpInside" id="fUm-Xb-ykt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.23459336159999999" green="0.68313717839999999" blue="0.3338845372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Au6-yM-Q7b" firstAttribute="top" secondItem="YGd-Wb-EYI" secondAttribute="bottom" constant="93" id="Hzm-cv-cnw"/>
+                            <constraint firstItem="OAf-Bm-EQR" firstAttribute="trailing" secondItem="KgK-iO-vFz" secondAttribute="trailingMargin" id="N3K-d2-0SP"/>
+                            <constraint firstItem="Oqa-sZ-gcd" firstAttribute="top" secondItem="4Xi-RD-koL" secondAttribute="bottom" constant="209" id="Rr6-df-nmi"/>
+                            <constraint firstItem="Au6-yM-Q7b" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leadingMargin" constant="51" id="aED-lh-dBy"/>
+                            <constraint firstItem="OAf-Bm-EQR" firstAttribute="top" secondItem="Au6-yM-Q7b" secondAttribute="bottom" constant="114" id="cUO-qq-6Eb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Xi-RD-koL" secondAttribute="trailing" constant="122" id="csr-9b-36x"/>
+                            <constraint firstItem="S8n-Lo-1mQ" firstAttribute="top" secondItem="YGd-Wb-EYI" secondAttribute="bottom" id="eRs-C7-vQV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Au6-yM-Q7b" secondAttribute="trailing" constant="52" id="fBO-lI-mPC"/>
+                            <constraint firstItem="OAf-Bm-EQR" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leadingMargin" id="hn2-F7-2jt"/>
+                            <constraint firstItem="S8n-Lo-1mQ" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leadingMargin" id="kUb-ze-0dB"/>
+                            <constraint firstItem="4Xi-RD-koL" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leadingMargin" constant="121" id="wxO-tF-M9y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="butBegin" destination="4Xi-RD-koL" id="kz6-jt-H89"/>
+                        <outlet property="butClose" destination="S8n-Lo-1mQ" id="zEv-aM-cLr"/>
+                        <outlet property="segment" destination="Au6-yM-Q7b" id="DJA-Rx-ar9"/>
+                        <outlet property="txtFieldTitle" destination="OAf-Bm-EQR" id="hdV-A7-uOd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXQ-DQ-Bz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="799.2503748125938"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yzl-nr-rk6">
             <objects>
@@ -218,7 +298,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZDr-Ge-VNm" id="jDI-8F-m7K">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" red="0.67443770759999999" green="0.69505350749999995" blue="0.71143336739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </tableViewCellContentView>
@@ -579,6 +659,7 @@
     <resources>
         <image name="arrowDown" width="25" height="25"/>
         <image name="iconChart" width="25" height="25"/>
+        <image name="iconDelete" width="25" height="25"/>
         <image name="iconPlus" width="25" height="25"/>
         <image name="lock" width="50" height="50"/>
         <image name="mainbackground" width="207" height="282"/>

@@ -16,6 +16,11 @@
 		0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */; };
 		0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */; };
 		0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */; };
+		0C7DB3321F1F08BC00CCD215 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C7DB32D1F1F08BC00CCD215 /* Info.plist */; };
+		0C7DB3331F1F08BC00CCD215 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7DB32E1F1F08BC00CCD215 /* Palette.swift */; };
+		0C7DB3341F1F08BC00CCD215 /* TwicketSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7DB3301F1F08BC00CCD215 /* TwicketSegmentedControl.swift */; };
+		0C7DB3351F1F08BC00CCD215 /* UIViewShadowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7DB3311F1F08BC00CCD215 /* UIViewShadowExtension.swift */; };
+		0C7DB3371F1F0B1400CCD215 /* ChartSetupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7DB3361F1F0B1400CCD215 /* ChartSetupController.swift */; };
 		0CCFDA041F1C19D500C5B022 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCFDA031F1C19D500C5B022 /* DataService.swift */; };
 		0CD05BFB1EFCB236006EB56B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */; };
 		0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */; };
@@ -34,6 +39,12 @@
 		0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		0C7DB32D1F1F08BC00CCD215 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C7DB32E1F1F08BC00CCD215 /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		0C7DB32F1F1F08BC00CCD215 /* TwicketSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwicketSegmentedControl.h; sourceTree = "<group>"; };
+		0C7DB3301F1F08BC00CCD215 /* TwicketSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwicketSegmentedControl.swift; sourceTree = "<group>"; };
+		0C7DB3311F1F08BC00CCD215 /* UIViewShadowExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewShadowExtension.swift; sourceTree = "<group>"; };
+		0C7DB3361F1F0B1400CCD215 /* ChartSetupController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartSetupController.swift; sourceTree = "<group>"; };
 		0CCFDA031F1C19D500C5B022 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +86,7 @@
 		0C1FC8141EF9F34700B18623 /* KPCharts */ = {
 			isa = PBXGroup;
 			children = (
+				0C7DB32B1F1F084900CCD215 /* Libs */,
 				0C972FF01F05DF7900E4B834 /* Controllers */,
 				0CD05C001F01C4F6006EB56B /* Views */,
 				0C1FC8191EF9F34700B18623 /* Main.storyboard */,
@@ -87,6 +99,26 @@
 			path = KPCharts;
 			sourceTree = "<group>";
 		};
+		0C7DB32B1F1F084900CCD215 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				0C7DB32C1F1F08BC00CCD215 /* TwicketSegmentedControl */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		0C7DB32C1F1F08BC00CCD215 /* TwicketSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				0C7DB32D1F1F08BC00CCD215 /* Info.plist */,
+				0C7DB32E1F1F08BC00CCD215 /* Palette.swift */,
+				0C7DB32F1F1F08BC00CCD215 /* TwicketSegmentedControl.h */,
+				0C7DB3301F1F08BC00CCD215 /* TwicketSegmentedControl.swift */,
+				0C7DB3311F1F08BC00CCD215 /* UIViewShadowExtension.swift */,
+			);
+			path = TwicketSegmentedControl;
+			sourceTree = "<group>";
+		};
 		0C972FF01F05DF7900E4B834 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +128,7 @@
 				0C4423F71EFA0A61005F7153 /* SignInViewController.swift */,
 				0C1FC8151EF9F34700B18623 /* AppDelegate.swift */,
 				0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */,
+				0C7DB3361F1F0B1400CCD215 /* ChartSetupController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +223,7 @@
 				0C1FC8201EF9F34700B18623 /* LaunchScreen.storyboard in Resources */,
 				0CD05BFB1EFCB236006EB56B /* GoogleService-Info.plist in Resources */,
 				0C1FC81D1EF9F34700B18623 /* Assets.xcassets in Resources */,
+				0C7DB3321F1F08BC00CCD215 /* Info.plist in Resources */,
 				0C1FC81B1EF9F34700B18623 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,9 +283,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C7DB3371F1F0B1400CCD215 /* ChartSetupController.swift in Sources */,
 				0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */,
 				0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */,
 				0C1238161F12B5EC00CA8C6C /* Util.swift in Sources */,
+				0C7DB3351F1F08BC00CCD215 /* UIViewShadowExtension.swift in Sources */,
+				0C7DB3331F1F08BC00CCD215 /* Palette.swift in Sources */,
+				0C7DB3341F1F08BC00CCD215 /* TwicketSegmentedControl.swift in Sources */,
 				0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */,
 				0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */,
 				0C4423F81EFA0A61005F7153 /* SignInViewController.swift in Sources */,
