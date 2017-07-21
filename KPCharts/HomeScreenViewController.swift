@@ -22,10 +22,10 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
 
         self.title = ""
-        createPicker()
+       // createPicker()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(selectedSignOut))
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(selectChartType))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "iconChart"), style: .plain, target: self, action: #selector(selectedChartType))
+       // navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "iconChart"), style: .plain, target: self, action: #selector(selectedChartType))
         navigationController?.navigationBar.tintColor = UIColor.white
         
         myTableView.separatorStyle = .singleLine
@@ -35,12 +35,14 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadChartData), for: .valueChanged)
         myTableView.refreshControl = refreshControl
-        loadChartData()
+        if UserDefaults.standard.bool(forKey: "isLoggedIn"){
+            loadChartData()
+        }
         
     }
     
     func loadChartData(){
-        let uid = UserDefaults.standard.object(forKey: "uid") as! String
+         let uid = UserDefaults.standard.object(forKey: "uid") as! String
         DataService.ds.findUserCharts(uid: uid) { (snapshot, error) in
             if snapshot.childrenCount > 0 {
                 for charts in snapshot.children.allObjects as! [FIRDataSnapshot] {
@@ -52,7 +54,6 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
             self.myTableView.refreshControl?.endRefreshing()
             self.myTableView.reloadData()
         }
-
     }
     func createPicker() {
         // self.typePickerView.isHidden = true

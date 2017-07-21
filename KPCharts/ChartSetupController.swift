@@ -17,15 +17,26 @@ class ChartSetupController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let titles = ["Kicks", "Punts", "Kickoffs"]
+        segment.setSegmentItems(titles)
+        segment.defaultTextColor = UIColor(red: 60/255, green: 174/255, blue: 85/255, alpha: 1)
+        segment.highlightTextColor = UIColor.white
+        segment.segmentsBackgroundColor = UIColor.white
+        segment.sliderBackgroundColor = UIColor(red: 60/255, green: 174/255, blue: 85/255, alpha: 1)
+        segment.isSliderShadowHidden = true
+        segment.layer.cornerRadius = segment.frame.height/2
+        
+        butBegin.layer.cornerRadius = butBegin.frame.height/2
+       // segment.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    //MARK: TwicketSegmentControl Delegate
+    
+    
+    
 
     @IBAction func tappedClose(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func tappedBegin(_ sender: Any) {
