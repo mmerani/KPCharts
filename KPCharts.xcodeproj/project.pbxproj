@@ -16,6 +16,8 @@
 		0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */; };
 		0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */; };
 		0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */; };
+		0C595E771F2546460096E2FD /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C595E761F2546460096E2FD /* SWRevealViewController.m */; };
+		0C595E7A1F254A130096E2FD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C595E791F254A130096E2FD /* MenuViewController.swift */; };
 		0C7DB3321F1F08BC00CCD215 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C7DB32D1F1F08BC00CCD215 /* Info.plist */; };
 		0C7DB3331F1F08BC00CCD215 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7DB32E1F1F08BC00CCD215 /* Palette.swift */; };
 		0C7DB3341F1F08BC00CCD215 /* TwicketSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7DB3301F1F08BC00CCD215 /* TwicketSegmentedControl.swift */; };
@@ -39,6 +41,10 @@
 		0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		0C595E741F2546450096E2FD /* KPCharts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KPCharts-Bridging-Header.h"; sourceTree = "<group>"; };
+		0C595E751F2546460096E2FD /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		0C595E761F2546460096E2FD /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		0C595E791F254A130096E2FD /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		0C7DB32D1F1F08BC00CCD215 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C7DB32E1F1F08BC00CCD215 /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		0C7DB32F1F1F08BC00CCD215 /* TwicketSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwicketSegmentedControl.h; sourceTree = "<group>"; };
@@ -99,10 +105,21 @@
 			path = KPCharts;
 			sourceTree = "<group>";
 		};
+		0C595E781F2546850096E2FD /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				0C595E751F2546460096E2FD /* SWRevealViewController.h */,
+				0C595E761F2546460096E2FD /* SWRevealViewController.m */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		0C7DB32B1F1F084900CCD215 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				0C595E781F2546850096E2FD /* SWRevealViewController */,
 				0C7DB32C1F1F08BC00CCD215 /* TwicketSegmentedControl */,
+				0C595E741F2546450096E2FD /* KPCharts-Bridging-Header.h */,
 			);
 			name = Libs;
 			sourceTree = "<group>";
@@ -129,6 +146,7 @@
 				0C1FC8151EF9F34700B18623 /* AppDelegate.swift */,
 				0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */,
 				0C7DB3361F1F0B1400CCD215 /* ChartSetupController.swift */,
+				0C595E791F254A130096E2FD /* MenuViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -193,6 +211,7 @@
 					0C1FC8111EF9F34700B18623 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = G3R5J2YQ9F;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -283,8 +302,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C595E771F2546460096E2FD /* SWRevealViewController.m in Sources */,
 				0C7DB3371F1F0B1400CCD215 /* ChartSetupController.swift in Sources */,
 				0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */,
+				0C595E7A1F254A130096E2FD /* MenuViewController.swift in Sources */,
 				0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */,
 				0C1238161F12B5EC00CA8C6C /* Util.swift in Sources */,
 				0C7DB3351F1F08BC00CCD215 /* UIViewShadowExtension.swift in Sources */,
@@ -418,11 +439,14 @@
 			baseConfigurationReference = F41C3757932298E3EF06EB29 /* Pods-KPCharts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G3R5J2YQ9F;
 				INFOPLIST_FILE = KPCharts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelmerani.KPCharts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KPCharts/KPCharts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -432,11 +456,13 @@
 			baseConfigurationReference = EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = G3R5J2YQ9F;
 				INFOPLIST_FILE = KPCharts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.michaelmerani.KPCharts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KPCharts/KPCharts-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -9,6 +9,8 @@
 import UIKit
 import Foundation
 
+let COLOR_APP = UIColor(red: 60/255, green: 174/255, blue: 85/255, alpha: 1)
+
 
 extension UIImage {
     

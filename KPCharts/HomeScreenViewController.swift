@@ -11,6 +11,8 @@ import Firebase
 
 class HomeScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    @IBOutlet weak var btnMenu: UIBarButtonItem!
+    
     var viewChartType = UIPickerView()
     var toolBar = UIToolbar()
     var viewForPicker = UIView()
@@ -22,10 +24,12 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
 
         self.title = ""
-       // createPicker()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(selectedSignOut))
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(selectChartType))
-       // navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "iconChart"), style: .plain, target: self, action: #selector(selectedChartType))
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(selectedSignOut))
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(revealToggle:))
+        btnMenu.target = self.revealViewController()
+        btnMenu.action = #selector(SWRevealViewController.revealToggle(_:))
+        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
         navigationController?.navigationBar.tintColor = UIColor.white
         
         myTableView.separatorStyle = .singleLine
@@ -55,74 +59,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
             self.myTableView.reloadData()
         }
     }
-    func createPicker() {
-        // self.typePickerView.isHidden = true
-        viewForPicker.frame = CGRect(x: 0, y: self.view.frame.height/2, width: UIScreen.main.bounds.size.width, height: self.view.frame.height/2)
-        self.viewChartType.dataSource = self
-        self.viewChartType.delegate = self
-        self.viewChartType.showsSelectionIndicator = true
-        self.viewChartType.frame = CGRect(x: 0, y: 50, width: UIScreen.main.bounds.size.width, height: self.view.frame.height/2 - 50)
-        self.viewChartType.backgroundColor = UIColor.white
-        self.toolBar.frame = CGRect(x: 0, y: 0, width: self.viewForPicker.frame.width, height: 50)
-        //self.toolBar.barStyle = .default
-        self.toolBar.isTranslucent = false
-        self.toolBar.tintColor = UIColor.white
-        self.toolBar.barTintColor = UIColor(red: 60/255, green: 174/255, blue: 85/255, alpha: 1)
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action:#selector(doneSelected))
-         let cancelButton = UIBarButtonItem(title: "Cancel", style: .done, target: self, action:#selector(cancelSelected))
-        let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let flex2 = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let title = UIBarButtonItem(title: "Chart Type", style: .plain, target: nil, action: nil)
-        self.toolBar.setItems([cancelButton,flex2,title,flex,doneButton], animated: false)
-        self.toolBar.isUserInteractionEnabled = true
-    }
     
-    func selectedSignOut() {
-        UserDefaults.standard.set(false, forKey: "isLoggedIn")
-        UserDefaults.standard.set("",forKey: "uid")
-        UserDefaults.standard.synchronize()
-        let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        let loginView = storyboard.instantiateViewController(withIdentifier: "loginView")
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.makeKeyAndVisible()
-        appDelegate.window?.rootViewController?.present(loginView, animated: true, completion: nil)
-    }
-    
-    func selectedChartType() {
-        print("Tapped")
-       // self.typePickerView.isHidden = false
-        self.viewForPicker.addSubview(self.toolBar)
-        self.viewForPicker.addSubview(self.viewChartType)
-        self.view.addSubview(viewForPicker)
-    }
-    func doneSelected(sender:UIBarButtonItem) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let chartsVC = storyBoard.instantiateViewController(withIdentifier: "chartsVC") as! ChartsViewController
-        if selectedWeek == 0{
-            chartsVC.chartType = "Punts"
-        } else if selectedWeek == 1 {
-            chartsVC.chartType = "Kicks"
-        } else {
-            chartsVC.chartType = "Kickoffs"
-        }
-        self.present(chartsVC, animated:true, completion:nil)
-        self.viewChartType.removeFromSuperview()
-        self.toolBar.removeFromSuperview()
-        self.viewForPicker.removeFromSuperview()
-        
-    }
-    
-    func cancelSelected(){
-        self.viewChartType.removeFromSuperview()
-        self.toolBar.removeFromSuperview()
-        self.viewForPicker.removeFromSuperview()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {

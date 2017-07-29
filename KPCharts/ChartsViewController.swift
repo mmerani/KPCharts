@@ -19,6 +19,7 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var lblAverages: UILabel!
     @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var lblTitle: UILabel!
     
     var avgDistance = 0.0
     var avgHangtime = 0.0
@@ -27,9 +28,16 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     var dataSet = [Dictionary<String, Any>]()
     var dataDict = [String: Any]()
     var chartType: String?
+    var chartTitle: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if chartTitle != "" {
+            lblTitle.text = chartTitle
+        } else {
+            lblTitle.text = chartType
+        }
        
         if chartType == "Punts" {
             lblLeft.text = "Distance"
@@ -76,16 +84,26 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
         self.avgDistance = 0.0
         self.avgHangtime = 0.0
         if chartType == "Punts" || chartType == "Kickoffs" {
+            var nonZeroYardsCounter = 0
+            var nonZeroHangCounter = 0
             for cell in cells {
                 let customCell = cell as! ChartsTableViewCell
-                let yards = Double(customCell.txtFieldYards.text!)
-                let hangtime = Double(customCell.txtFieldHangtime.text!)
-                self.avgDistance += yards!
-                self.avgHangtime += hangtime!
+                if let yards = Double(customCell.txtFieldYards.text!) {
+                    if yards > 0 {
+                        self.avgDistance += yards
+                        nonZeroYardsCounter += 1
+                    }
+                }
+                if let hangtime = Double(customCell.txtFieldHangtime.text!){
+                    if hangtime > 0 {
+                        self.avgHangtime += hangtime
+                        nonZeroHangCounter += 1
+                    }
+                }
             }
-            self.avgDistance = self.avgDistance/Double(cells.count)
-            self.avgHangtime = self.avgHangtime/Double(cells.count)
-            lblAverages.text = "Yards:\(self.avgDistance) Time:\(self.avgHangtime)"
+            self.avgDistance = self.avgDistance/Double(nonZeroYardsCounter)
+            self.avgHangtime = self.avgHangtime/Double(nonZeroHangCounter)
+            lblAverages.text = "Yards:\(round(100*self.avgDistance)/100) Time:\(round(100*self.avgHangtime)/100)"
         } else {
             var madeFgs = 0
             var totalFgs = 0
@@ -104,47 +122,46 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     @IBAction func tappedSave(_ sender: Any) {
         let cells = tableView.visibleCells
         
-        self.avgDistance = 0.0
-        self.avgHangtime = 0.0
         if chartType == "Punts" || chartType == "Kickoffs" {
             for cell in cells {
                 let customCell = cell as! ChartsTableViewCell
-                let yards = Double(customCell.txtFieldYards.text!)
-                let hangtime = Double(customCell.txtFieldHangtime.text!)
-                dataDict["yards"] = yards
-                dataDict["time"] = hangtime
-                dataSet.append(dataDict)
-                print(dataSet)
-            }
-            let uid = UserDefaults.standard.object(forKey: "uid") as! String
-            let data = ["uid": uid,
-                            "chartType": self.chartType!,
-                            "chartData": dataSet as Array,
-                            "title": "Testing Title"] as [String : Any]
-            DataService.ds.setChartData(chartData: data, completion: { (success, error) in
-                if success {
-                    let alert = UIAlertController(title:nil, message: "Your charting has been saved!", preferredStyle: .alert)
-                    let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                        self.dismiss(animated: true, completion: nil)
-                    })
-                    alert.addAction(okAction)
-                    self.present(alert, animated: true, completion: nil)
-                } else {
-                    print("Data not saved")
+                if customCell.txtFieldYards.text != "0" || customCell.txtFieldHangtime.text != "0"{
+                    let yards = Double(customCell.txtFieldYards.text!)
+                    let hangtime = Double(customCell.txtFieldHangtime.text!)
+                    dataDict["yards"] = yards
+                    dataDict["time"] = hangtime
+                    dataSet.append(dataDict)
                 }
-            })
-           
-            
+            }
         } else {
-            var madeFgs = 0
-            var totalFgs = 0
+//            var madeFgs = 0
+//            var totalFgs = 0
             for cell in cells {
                 let customCell = cell as! ChartsTableViewCell
-                let fraction = customCell.makeOrMiss.selectedSegmentIndex
+                let attemptResult = customCell.makeOrMiss.selectedSegmentIndex
                 let yards = customCell.txtFieldKickYards.text
+                dataDict["yards"] = yards
+                dataDict["attemptResult"] = attemptResult
+                dataSet.append(dataDict)
             }
         }
-
+        let uid = UserDefaults.standard.object(forKey: "uid") as! String
+        let data = ["uid": uid,
+                    "chartType": self.chartType!,
+                    "chartData": dataSet as Array,
+                    "title": self.chartTitle ?? self.chartType!] as [String : Any]
+        DataService.ds.setChartData(chartData: data, completion: { (success, error) in
+            if success {
+                let alert = UIAlertController(title:nil, message: "Your charting has been saved!", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    self.dismiss(animated: true, completion: nil)
+                })
+                alert.addAction(okAction)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                print("Data not saved")
+            }
+        })
     }
   
     //MARK: UITableViewDelegate
