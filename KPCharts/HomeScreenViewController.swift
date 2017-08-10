@@ -9,15 +9,10 @@
 import UIKit
 import Firebase
 
-class HomeScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class HomeScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     
-    var viewChartType = UIPickerView()
-    var toolBar = UIToolbar()
-    var viewForPicker = UIView()
-    var selectedWeek: Int?
-    let pickerNames = ["Punts","Kicks","Kickoffs"]
     @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
@@ -32,74 +27,80 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        myTableView.separatorStyle = .singleLine
+        let background = UIImageView(image:UIImage(named: "mainbackground"))
+        background.contentMode = .scaleAspectFill
+        background.clipsToBounds = true
+        background.alpha = 0.75
+        myTableView.backgroundView = background
+        
+        myTableView.separatorStyle = .none
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         
         myTableView.backgroundColor = UIColor.white
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(loadChartData), for: .valueChanged)
-        myTableView.refreshControl = refreshControl
-        if UserDefaults.standard.bool(forKey: "isLoggedIn"){
-            loadChartData()
-        }
-        
+        myTableView.delegate = self
+        myTableView.dataSource = self
+      
+        myTableView.tableFooterView = UIView()
     }
     
-    func loadChartData(){
-         let uid = UserDefaults.standard.object(forKey: "uid") as! String
-        DataService.ds.findUserCharts(uid: uid) { (snapshot, error) in
-            if snapshot.childrenCount > 0 {
-                for charts in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                    print("Print: \(charts)")
-                }
-            } else {
-                print("No chart data")
-            }
-            self.myTableView.refreshControl?.endRefreshing()
-            self.myTableView.reloadData()
-        }
+    
+    func openChartSetup() {
+        print("It worked bitch")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let setupChart = storyBoard.instantiateViewController(withIdentifier: "setupVC") as! ChartSetupController
+        self.present(setupChart, animated:false, completion:nil)
+    }
+    
+    func openSavedCharts() {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let savedCharts = storyBoard.instantiateViewController(withIdentifier: "savedChartsVC") as! SavedChartsController
+        self.navigationController?.pushViewController(savedCharts, animated: true)
+    }
+    
+    func openGraphs() {
+        
     }
     
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 3
     }
 
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
-    
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeCell
+        
+        if indexPath.row == 0 {
+            cell.lblTitle.text = "Create a new chart"
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openChartSetup))
+            tapGesture.numberOfTapsRequired = 1
+            cell.addGestureRecognizer(tapGesture)
+        } else if indexPath.row == 1 {
+            cell.lblTitle.text = "View saved charts"
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openSavedCharts))
+            tapGesture.numberOfTapsRequired = 1
+            cell.addGestureRecognizer(tapGesture)
+        } else if indexPath.row == 2 {
+            cell.lblTitle.text = "See progress"
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openGraphs))
+            tapGesture.numberOfTapsRequired = 1
+            cell.addGestureRecognizer(tapGesture)
+        }
+
         return cell
     }
-    // MARK: - Picker view data source
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int{
-        return 1
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
-    // returns the # of rows in each component..
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
-        return pickerNames.count
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
     }
-    
-   
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerNames[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        selectedWeek = row
-    }
-
 }

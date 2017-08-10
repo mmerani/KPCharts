@@ -8,10 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0C1238161F12B5EC00CA8C6C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1238151F12B5EC00CA8C6C /* Util.swift */; };
+		0C185A541F3015AA00805F3E /* SavedChartsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C185A531F3015AA00805F3E /* SavedChartsCell.swift */; };
 		0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1FC8151EF9F34700B18623 /* AppDelegate.swift */; };
 		0C1FC81B1EF9F34700B18623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FC8191EF9F34700B18623 /* Main.storyboard */; };
 		0C1FC81D1EF9F34700B18623 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FC81C1EF9F34700B18623 /* Assets.xcassets */; };
 		0C1FC8201EF9F34700B18623 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1FC81E1EF9F34700B18623 /* LaunchScreen.storyboard */; };
+		0C2240C31F32B72000074DB4 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2240C21F32B72000074DB4 /* HomeCell.swift */; };
+		0C2240C81F36256400074DB4 /* SavedChartsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2240C71F36256400074DB4 /* SavedChartsController.swift */; };
+		0C2240CA1F36A5AE00074DB4 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2240C91F36A5AE00074DB4 /* VideoViewController.swift */; };
 		0C4423F81EFA0A61005F7153 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423F71EFA0A61005F7153 /* SignInViewController.swift */; };
 		0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */; };
 		0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */; };
@@ -31,12 +35,16 @@
 
 /* Begin PBXFileReference section */
 		0C1238151F12B5EC00CA8C6C /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		0C185A531F3015AA00805F3E /* SavedChartsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedChartsCell.swift; sourceTree = "<group>"; };
 		0C1FC8121EF9F34700B18623 /* KPCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KPCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C1FC8151EF9F34700B18623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C1FC81A1EF9F34700B18623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0C1FC81C1EF9F34700B18623 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C1FC81F1EF9F34700B18623 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C1FC8211EF9F34700B18623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C2240C21F32B72000074DB4 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		0C2240C71F36256400074DB4 /* SavedChartsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavedChartsController.swift; sourceTree = "<group>"; };
+		0C2240C91F36A5AE00074DB4 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		0C4423F71EFA0A61005F7153 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		0C4423F91EFA0A7E005F7153 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		0C4423FB1EFA0AAC005F7153 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +155,8 @@
 				0C4423FD1EFA0AD1005F7153 /* ChartsViewController.swift */,
 				0C7DB3361F1F0B1400CCD215 /* ChartSetupController.swift */,
 				0C595E791F254A130096E2FD /* MenuViewController.swift */,
+				0C2240C71F36256400074DB4 /* SavedChartsController.swift */,
+				0C2240C91F36A5AE00074DB4 /* VideoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -155,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */,
+				0C185A531F3015AA00805F3E /* SavedChartsCell.swift */,
+				0C2240C21F32B72000074DB4 /* HomeCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -304,15 +316,19 @@
 			files = (
 				0C595E771F2546460096E2FD /* SWRevealViewController.m in Sources */,
 				0C7DB3371F1F0B1400CCD215 /* ChartSetupController.swift in Sources */,
+				0C2240CA1F36A5AE00074DB4 /* VideoViewController.swift in Sources */,
 				0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */,
 				0C595E7A1F254A130096E2FD /* MenuViewController.swift in Sources */,
+				0C2240C81F36256400074DB4 /* SavedChartsController.swift in Sources */,
 				0C4423FA1EFA0A7E005F7153 /* SignUpViewController.swift in Sources */,
 				0C1238161F12B5EC00CA8C6C /* Util.swift in Sources */,
 				0C7DB3351F1F08BC00CCD215 /* UIViewShadowExtension.swift in Sources */,
 				0C7DB3331F1F08BC00CCD215 /* Palette.swift in Sources */,
 				0C7DB3341F1F08BC00CCD215 /* TwicketSegmentedControl.swift in Sources */,
 				0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */,
+				0C185A541F3015AA00805F3E /* SavedChartsCell.swift in Sources */,
 				0C4423FE1EFA0AD1005F7153 /* ChartsViewController.swift in Sources */,
+				0C2240C31F32B72000074DB4 /* HomeCell.swift in Sources */,
 				0C4423F81EFA0A61005F7153 /* SignInViewController.swift in Sources */,
 				0C4423FC1EFA0AAC005F7153 /* HomeScreenViewController.swift in Sources */,
 				0CCFDA041F1C19D500C5B022 /* DataService.swift in Sources */,

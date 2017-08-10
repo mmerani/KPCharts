@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
 
 class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
@@ -23,12 +24,15 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     var avgDistance = 0.0
     var avgHangtime = 0.0
-        
+    var madeFgs = 0
+    var totalFgs = 0
+    
     var items = [""]
     var dataSet = [Dictionary<String, Any>]()
     var dataDict = [String: Any]()
     var chartType: String?
     var chartTitle: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,19 +43,16 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
             lblTitle.text = chartType
         }
        
-        if chartType == "Punts" {
+        if chartType == "Punts" || chartType == "Kickoffs" {
             lblLeft.text = "Distance"
             lblRight.text = "Hangtime"
+            lblAverages.text = "Avg Distance: 0.0"
         } else if chartType == "Kicks" {
             lblLeft.text = "Distance"
             lblRight.text = ""
-        } else {
-            lblLeft.text = "Distance"
-            lblRight.text = "Hangtime"
+            lblAverages.text = "Made: 0/0"
         }
-        btnSave.layer.cornerRadius = 2
         btnClose.setImage(UIImage(named: "arrowDown")?.tintWithColor(color: UIColor.white), for: .normal)
-        btnAdd.setImage(UIImage(named: "iconAdd")?.tintWithColor(color: UIColor.white), for: .normal)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -70,19 +71,21 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func tappedInsert(_ sender: Any) {
+    @IBAction func tappedAdd(_ sender: Any) {
         items.append("")
         let insertionIndexPath = NSIndexPath(row: items.count - 1, section: 0)
         calculateAverages()
         tableView.insertRows(at: [insertionIndexPath as IndexPath], with: .automatic)
         tableView.reloadData()
+
     }
-    
     func calculateAverages(){
         let cells = tableView.visibleCells
         
         self.avgDistance = 0.0
         self.avgHangtime = 0.0
+        self.madeFgs = 0
+        self.totalFgs = 0
         if chartType == "Punts" || chartType == "Kickoffs" {
             var nonZeroYardsCounter = 0
             var nonZeroHangCounter = 0
@@ -103,15 +106,13 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
             }
             self.avgDistance = self.avgDistance/Double(nonZeroYardsCounter)
             self.avgHangtime = self.avgHangtime/Double(nonZeroHangCounter)
-            lblAverages.text = "Yards:\(round(100*self.avgDistance)/100) Time:\(round(100*self.avgHangtime)/100)"
+            lblAverages.text = "Avg Distance:\(round(100*self.avgDistance)/100) Time:\(round(100*self.avgHangtime)/100)"
         } else {
-            var madeFgs = 0
-            var totalFgs = 0
             for cell in cells {
                 let customCell = cell as! ChartsTableViewCell
-                let fraction = customCell.makeOrMiss.selectedSegmentIndex
+                let completion = customCell.makeOrMiss.selectedSegmentIndex
                 totalFgs += 1
-                if fraction == 0 {
+                if completion == 0 {
                     madeFgs += 1
                 }
             }
@@ -121,6 +122,10 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     @IBAction func tappedSave(_ sender: Any) {
         let cells = tableView.visibleCells
+        
+        let uid = UserDefaults.standard.object(forKey: "uid") as! String
+        
+        var data = Dictionary<String, Any>()
         
         if chartType == "Punts" || chartType == "Kickoffs" {
             for cell in cells {
@@ -132,10 +137,15 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
                     dataDict["time"] = hangtime
                     dataSet.append(dataDict)
                 }
+                 data = ["uid": uid,
+                            "chartType": self.chartType!,
+                            "chartData": dataSet as Array,
+                            "avgDistance": self.avgDistance,
+                            "avgHang": self.avgHangtime,
+                            "title": self.chartTitle ?? self.chartType!] as [String : Any]
+
             }
         } else {
-//            var madeFgs = 0
-//            var totalFgs = 0
             for cell in cells {
                 let customCell = cell as! ChartsTableViewCell
                 let attemptResult = customCell.makeOrMiss.selectedSegmentIndex
@@ -144,12 +154,13 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
                 dataDict["attemptResult"] = attemptResult
                 dataSet.append(dataDict)
             }
+             data = ["uid": uid,
+                        "chartType": self.chartType!,
+                        "chartData": dataSet as Array,
+                        "completion": "\(madeFgs)/\(totalFgs)",
+                        "title": self.chartTitle ?? self.chartType!] as [String : Any]
+
         }
-        let uid = UserDefaults.standard.object(forKey: "uid") as! String
-        let data = ["uid": uid,
-                    "chartType": self.chartType!,
-                    "chartData": dataSet as Array,
-                    "title": self.chartTitle ?? self.chartType!] as [String : Any]
         DataService.ds.setChartData(chartData: data, completion: { (success, error) in
             if success {
                 let alert = UIAlertController(title:nil, message: "Your charting has been saved!", preferredStyle: .alert)
@@ -206,6 +217,11 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
 
         let video = UITableViewRowAction(style: .normal, title: "Video") { action, index in
            print("Video tapped")
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let setupChart = storyBoard.instantiateViewController(withIdentifier: "videoVC") as! VideoViewController
+            self.present(setupChart, animated:false, completion:nil)
+
+            
         }
         video.backgroundColor = UIColor.lightGray
         
