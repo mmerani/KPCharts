@@ -193,10 +193,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUF-U2-qGJ">
+                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GOp-DW-VAr">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.23459336159999999" green="0.68313717839999999" blue="0.3338845372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="KTS-rg-Qq1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Au6-yM-Q7b" customClass="TwicketSegmentedControl" customModule="KPCharts" customModuleProvider="target">
                                 <rect key="frame" x="67" y="113" width="240" height="40"/>
                                 <constraints>
@@ -238,11 +243,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="rUF-U2-qGJ" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leading" id="7dp-10-WF2"/>
                             <constraint firstItem="Au6-yM-Q7b" firstAttribute="top" secondItem="YGd-Wb-EYI" secondAttribute="bottom" constant="93" id="Hzm-cv-cnw"/>
-                            <constraint firstItem="rUF-U2-qGJ" firstAttribute="top" secondItem="KgK-iO-vFz" secondAttribute="top" id="LNi-3l-vqf"/>
                             <constraint firstItem="OAf-Bm-EQR" firstAttribute="trailing" secondItem="KgK-iO-vFz" secondAttribute="trailingMargin" id="N3K-d2-0SP"/>
                             <constraint firstItem="Oqa-sZ-gcd" firstAttribute="top" secondItem="4Xi-RD-koL" secondAttribute="bottom" constant="209" id="Rr6-df-nmi"/>
                             <constraint firstItem="Au6-yM-Q7b" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leadingMargin" constant="51" id="aED-lh-dBy"/>
@@ -251,9 +253,7 @@
                             <constraint firstItem="S8n-Lo-1mQ" firstAttribute="top" secondItem="YGd-Wb-EYI" secondAttribute="bottom" constant="5" id="eRs-C7-vQV"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Au6-yM-Q7b" secondAttribute="trailing" constant="52" id="fBO-lI-mPC"/>
                             <constraint firstItem="OAf-Bm-EQR" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leadingMargin" id="hn2-F7-2jt"/>
-                            <constraint firstAttribute="trailing" secondItem="rUF-U2-qGJ" secondAttribute="trailing" id="j6I-GF-STi"/>
                             <constraint firstItem="S8n-Lo-1mQ" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leadingMargin" id="kUb-ze-0dB"/>
-                            <constraint firstItem="Oqa-sZ-gcd" firstAttribute="top" secondItem="rUF-U2-qGJ" secondAttribute="bottom" id="ory-8c-AUp"/>
                             <constraint firstItem="4Xi-RD-koL" firstAttribute="leading" secondItem="KgK-iO-vFz" secondAttribute="leadingMargin" constant="121" id="wxO-tF-M9y"/>
                         </constraints>
                     </view>

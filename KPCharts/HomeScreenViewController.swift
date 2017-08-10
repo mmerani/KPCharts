@@ -48,6 +48,9 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         print("It worked bitch")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let setupChart = storyBoard.instantiateViewController(withIdentifier: "setupVC") as! ChartSetupController
+        setupChart.providesPresentationContextTransitionStyle = true
+        setupChart.definesPresentationContext = true
+        setupChart.modalPresentationStyle=UIModalPresentationStyle.overCurrentContext
         self.present(setupChart, animated:false, completion:nil)
     }
     
