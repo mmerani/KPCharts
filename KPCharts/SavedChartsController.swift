@@ -13,9 +13,18 @@ import Firebase
 class SavedChartsController: UITableViewController {
 
     var chartList = [FIRDataSnapshot]()
+    let activityView = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityView.frame = CGRect(x: view.frame.width/2 - 25 , y: view.frame.height/2 - 25 - (navigationController?.navigationBar.frame.height)!, width: 50, height: 50)
+        activityView.activityIndicatorViewStyle = .gray
+        view.addSubview(activityView)
+        view.bringSubview(toFront: activityView)
+        activityView.startAnimating()
+        
+        tableView.separatorStyle = .none
         
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(loadChartData), for: .valueChanged)
@@ -34,6 +43,8 @@ class SavedChartsController: UITableViewController {
                 } else {
                     print("No chart data")
                 }
+                self.activityView.stopAnimating()
+                self.tableView.separatorStyle = .singleLine
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
             }
