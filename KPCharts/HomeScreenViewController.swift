@@ -61,7 +61,8 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func openGraphs() {
-        
+        let progressVC = ProgressViewController(style: .grouped)
+        self.navigationController?.pushViewController(progressVC, animated: true)
     }
     
     // MARK: - Table view data source

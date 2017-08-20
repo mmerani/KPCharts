@@ -30,6 +30,9 @@
 		0CCFDA041F1C19D500C5B022 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CCFDA031F1C19D500C5B022 /* DataService.swift */; };
 		0CD05BFB1EFCB236006EB56B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */; };
 		0CD05C021F01C532006EB56B /* ChartsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */; };
+		0CF52F061F428FD400D8CBA9 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF52F051F428FD400D8CBA9 /* ProgressViewController.swift */; };
+		0CF52F0B1F4A289100D8CBA9 /* LineChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF52F091F4A289100D8CBA9 /* LineChartCell.swift */; };
+		0CF52F0C1F4A289100D8CBA9 /* LineChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF52F0A1F4A289100D8CBA9 /* LineChartCell.xib */; };
 		D3CAB0E463A3AD9C8424DBB0 /* Pods_KPCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B29506E4B335757734DBA /* Pods_KPCharts.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,9 @@
 		0CCFDA031F1C19D500C5B022 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		0CD05BFA1EFCB236006EB56B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsTableViewCell.swift; sourceTree = "<group>"; };
+		0CF52F051F428FD400D8CBA9 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		0CF52F091F4A289100D8CBA9 /* LineChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartCell.swift; sourceTree = "<group>"; };
+		0CF52F0A1F4A289100D8CBA9 /* LineChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LineChartCell.xib; sourceTree = "<group>"; };
 		688B29506E4B335757734DBA /* Pods_KPCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.release.xcconfig"; sourceTree = "<group>"; };
 		F41C3757932298E3EF06EB29 /* Pods-KPCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				0C595E791F254A130096E2FD /* MenuViewController.swift */,
 				0C2240C71F36256400074DB4 /* SavedChartsController.swift */,
 				0C2240C91F36A5AE00074DB4 /* VideoViewController.swift */,
+				0CF52F051F428FD400D8CBA9 /* ProgressViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -167,6 +174,8 @@
 				0CD05C011F01C532006EB56B /* ChartsTableViewCell.swift */,
 				0C185A531F3015AA00805F3E /* SavedChartsCell.swift */,
 				0C2240C21F32B72000074DB4 /* HomeCell.swift */,
+				0CF52F091F4A289100D8CBA9 /* LineChartCell.swift */,
+				0CF52F0A1F4A289100D8CBA9 /* LineChartCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -255,6 +264,7 @@
 				0CD05BFB1EFCB236006EB56B /* GoogleService-Info.plist in Resources */,
 				0C1FC81D1EF9F34700B18623 /* Assets.xcassets in Resources */,
 				0C7DB3321F1F08BC00CCD215 /* Info.plist in Resources */,
+				0CF52F0C1F4A289100D8CBA9 /* LineChartCell.xib in Resources */,
 				0C1FC81B1EF9F34700B18623 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,8 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C595E771F2546460096E2FD /* SWRevealViewController.m in Sources */,
+				0CF52F061F428FD400D8CBA9 /* ProgressViewController.swift in Sources */,
 				0C7DB3371F1F0B1400CCD215 /* ChartSetupController.swift in Sources */,
 				0C2240CA1F36A5AE00074DB4 /* VideoViewController.swift in Sources */,
+				0CF52F0B1F4A289100D8CBA9 /* LineChartCell.swift in Sources */,
 				0C1FC8161EF9F34700B18623 /* AppDelegate.swift in Sources */,
 				0C595E7A1F254A130096E2FD /* MenuViewController.swift in Sources */,
 				0C2240C81F36256400074DB4 /* SavedChartsController.swift in Sources */,

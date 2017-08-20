@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F908DB86E8F6C5270025C3FE9BFE009E"
+               BlueprintIdentifier = "6CA6FB104A8278E7B7AEA78E98F0EFCC"
                BuildableName = "Pods_KPCharts.framework"
                BlueprintName = "Pods-KPCharts"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "F908DB86E8F6C5270025C3FE9BFE009E"
+            BlueprintIdentifier = "6CA6FB104A8278E7B7AEA78E98F0EFCC"
             BuildableName = "Pods_KPCharts.framework"
             BlueprintName = "Pods-KPCharts"
             ReferencedContainer = "container:Pods.xcodeproj">
