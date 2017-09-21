@@ -9,12 +9,11 @@
 import UIKit
 import Charts
 
-class LineChartCell: UITableViewCell {
+class LineChartCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet weak var lineChart: LineChartView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

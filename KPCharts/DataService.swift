@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-let DB_BASE = FIRDatabase.database().reference()
+let DB_BASE = Database.database().reference()
 //let STORAGE_BASE = FIRStorage.storage().reference()
 
 class DataService {
@@ -24,19 +24,19 @@ class DataService {
     // Storage references
    // private var _REF_POST_IMAGES = STORAGE_BASE.child("post-pics")
     
-    var REF_BASE: FIRDatabaseReference {
+    var REF_BASE: DatabaseReference {
         return _REF_BASE
     }
     
-    var REF_CHARTS: FIRDatabaseReference {
+    var REF_CHARTS: DatabaseReference {
         return _REF_CHARTS
     }
     
-    var REF_USERS: FIRDatabaseReference {
+    var REF_USERS: DatabaseReference {
         return _REF_USERS
     }
     
-    var REF_USER_CURRENT: FIRDatabaseReference {
+    var REF_USER_CURRENT: DatabaseReference {
         //let uid = KeychainWrapper.stringForKey(KEY_UID)
         //let uid = KeychainWrapper.set(KEY_UID)
        // let uid = KeychainWrapper.defaultKeychainWrapper.string(forKey: KEY_UID)
@@ -65,7 +65,7 @@ class DataService {
         }
     }
     
-    func findUserCharts(uid: String ,completion : @escaping (_ snapshot : FIRDataSnapshot , _ error : NSError?) -> Void) {
+    func findUserCharts(uid: String ,completion : @escaping (_ snapshot : DataSnapshot , _ error : NSError?) -> Void) {
         let query =  REF_CHARTS.queryOrdered(byChild: "uid").queryEqual(toValue: uid)
         query.observe(.value, with: { (results) in
             if results.childrenCount > 0 {

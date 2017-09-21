@@ -65,7 +65,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                 let email = emailText
                 let pwd = password1Text
                 
-                FIRAuth.auth()?.createUser(withEmail: email!, password: pwd!, completion: { (user, error) in
+                Auth.auth().createUser(withEmail: email!, password: pwd!, completion: { (user, error) in
                     if error != nil {
                         print("Unable to authenticate with Firebase using email")
                         print(error!)
@@ -95,7 +95,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             
             let email = txtFieldUsername.text
             let pwd = txtFieldPassword.text
-            FIRAuth.auth()?.signIn(withEmail: email!, password: pwd!, completion: { (user, error) in
+            Auth.auth().signIn(withEmail: email!, password: pwd!, completion: { (user, error) in
                 if error == nil {
                     print("MIKE: user authenticated with Firebase")
                     if let user = user {

@@ -12,7 +12,7 @@ import Firebase
 
 class SavedChartsController: UITableViewController {
 
-    var chartList = [FIRDataSnapshot]()
+    var chartList = [DataSnapshot]()
     let activityView = UIActivityIndicatorView()
 
     override func viewDidLoad() {
@@ -38,7 +38,7 @@ class SavedChartsController: UITableViewController {
         if let uid = UserDefaults.standard.object(forKey: "uid") {
             DataService.ds.findUserCharts(uid: uid as! String) { (snapshot, error) in
                 if snapshot.childrenCount > 0 {
-                    self.chartList = snapshot.children.allObjects as! [FIRDataSnapshot]
+                    self.chartList = snapshot.children.allObjects as! [DataSnapshot]
                     
                 } else {
                     print("No chart data")

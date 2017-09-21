@@ -66,7 +66,7 @@ class SignUpViewController: UIViewController , UITextFieldDelegate{
             let email = txtFieldEmail.text
             let pwd = txtFieldPassword.text
             
-            FIRAuth.auth()?.createUser(withEmail: email!, password: pwd!, completion: { (user, error) in
+            Auth.auth().createUser(withEmail: email!, password: pwd!, completion: { (user, error) in
                 if error != nil {
                     print("MIKE: Unable to authenticate with Firebase using email")
                     print(error!)

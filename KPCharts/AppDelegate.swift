@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
         [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barTintColor = UIColor(red: 60/255, green: 174/255, blue: 85/255, alpha: 1.0)

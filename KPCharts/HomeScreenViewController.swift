@@ -13,6 +13,12 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var btnMenu: UIBarButtonItem!
     
+    // test varibles
+    
+    var kicksArray = [DataSnapshot]()
+    var kickoffsArray = [DataSnapshot]()
+    var puntsArray = [DataSnapshot]()
+    
     @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
@@ -41,8 +47,43 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         myTableView.dataSource = self
       
         myTableView.tableFooterView = UIView()
+        
+        loadChartData()
     }
     
+    // MARK: - Actions
+
+    func loadChartData(){
+        if let uid = UserDefaults.standard.object(forKey: "uid") {
+            DataService.ds.findUserCharts(uid: uid as! String) { (snapshot, error) in
+                if snapshot.childrenCount > 0 {
+                    let chartList = snapshot.children.allObjects as! [DataSnapshot]
+                    self.sortList(chartList: chartList)
+                    //self.createChart()
+
+                } else {
+                    print("No chart data")
+                }
+
+//                self.tableView.refreshControl?.endRefreshing()
+//                self.tableView.reloadData()
+            }
+        }
+    }
+
+    func sortList(chartList: [DataSnapshot]) {
+        for data in chartList {
+            if let chartType = data.childSnapshot(forPath: "chartType").value as? String {
+                if chartType == "Punts" {
+                    puntsArray.append(data)
+                } else if chartType == "Kicks" {
+                    kicksArray.append(data)
+                } else if chartType == "Kickoffs" {
+                    kickoffsArray.append(data)
+                }
+            }
+        }
+    }
     
     func openChartSetup() {
         print("It worked bitch")
@@ -62,6 +103,9 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     
     func openGraphs() {
         let progressVC = ProgressViewController(style: .grouped)
+        progressVC.puntsArray = self.puntsArray
+        progressVC.kickoffsArray = self.kickoffsArray
+        progressVC.kicksArray = self.kickoffsArray
         self.navigationController?.pushViewController(progressVC, animated: true)
     }
     

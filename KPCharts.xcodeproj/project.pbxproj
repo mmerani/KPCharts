@@ -33,7 +33,7 @@
 		0CF52F061F428FD400D8CBA9 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF52F051F428FD400D8CBA9 /* ProgressViewController.swift */; };
 		0CF52F0B1F4A289100D8CBA9 /* LineChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF52F091F4A289100D8CBA9 /* LineChartCell.swift */; };
 		0CF52F0C1F4A289100D8CBA9 /* LineChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF52F0A1F4A289100D8CBA9 /* LineChartCell.xib */; };
-		D3CAB0E463A3AD9C8424DBB0 /* Pods_KPCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 688B29506E4B335757734DBA /* Pods_KPCharts.framework */; };
+		82D1FD914966FC23B7926E3C /* Pods_KPCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6901F60004701890334DD34D /* Pods_KPCharts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,9 +68,9 @@
 		0CF52F051F428FD400D8CBA9 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		0CF52F091F4A289100D8CBA9 /* LineChartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartCell.swift; sourceTree = "<group>"; };
 		0CF52F0A1F4A289100D8CBA9 /* LineChartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LineChartCell.xib; sourceTree = "<group>"; };
-		688B29506E4B335757734DBA /* Pods_KPCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.release.xcconfig"; sourceTree = "<group>"; };
-		F41C3757932298E3EF06EB29 /* Pods-KPCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.debug.xcconfig"; sourceTree = "<group>"; };
+		5DF8430A218FB952CD0436DA /* Pods-KPCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.debug.xcconfig"; sourceTree = "<group>"; };
+		6901F60004701890334DD34D /* Pods_KPCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KPCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EFD3D168184A9CE29D5898B /* Pods-KPCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KPCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3CAB0E463A3AD9C8424DBB0 /* Pods_KPCharts.framework in Frameworks */,
+				82D1FD914966FC23B7926E3C /* Pods_KPCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,8 +90,8 @@
 			children = (
 				0C1FC8141EF9F34700B18623 /* KPCharts */,
 				0C1FC8131EF9F34700B18623 /* Products */,
-				EFAFE1A878FE4AC1BA18BC74 /* Pods */,
-				886204A0AC7FC85098AC15E3 /* Frameworks */,
+				F170F74FAA89F861D215D323 /* Pods */,
+				E1B62C7EBD5771BFEE591234 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,19 +180,19 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		886204A0AC7FC85098AC15E3 /* Frameworks */ = {
+		E1B62C7EBD5771BFEE591234 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				688B29506E4B335757734DBA /* Pods_KPCharts.framework */,
+				6901F60004701890334DD34D /* Pods_KPCharts.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EFAFE1A878FE4AC1BA18BC74 /* Pods */ = {
+		F170F74FAA89F861D215D323 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F41C3757932298E3EF06EB29 /* Pods-KPCharts.debug.xcconfig */,
-				EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */,
+				5DF8430A218FB952CD0436DA /* Pods-KPCharts.debug.xcconfig */,
+				7EFD3D168184A9CE29D5898B /* Pods-KPCharts.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -204,12 +204,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C1FC8241EF9F34700B18623 /* Build configuration list for PBXNativeTarget "KPCharts" */;
 			buildPhases = (
-				DD5903CE098359F3ED293AEA /* [CP] Check Pods Manifest.lock */,
+				6370977C208A81ADBE884AFC /* [CP] Check Pods Manifest.lock */,
 				0C1FC80E1EF9F34700B18623 /* Sources */,
 				0C1FC80F1EF9F34700B18623 /* Frameworks */,
 				0C1FC8101EF9F34700B18623 /* Resources */,
-				F5911444C1F7F8F2361B5FA3 /* [CP] Embed Pods Frameworks */,
-				E3B1F5BBCD7114EE18949EDC /* [CP] Copy Pods Resources */,
+				06E52E27BF6D6F6EA9FC84A5 /* [CP] Embed Pods Frameworks */,
+				22DF0FD6E82DFA3B388F2484 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -272,22 +272,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DD5903CE098359F3ED293AEA /* [CP] Check Pods Manifest.lock */ = {
+		06E52E27BF6D6F6EA9FC84A5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E3B1F5BBCD7114EE18949EDC /* [CP] Copy Pods Resources */ = {
+		22DF0FD6E82DFA3B388F2484 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -302,19 +313,22 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F5911444C1F7F8F2361B5FA3 /* [CP] Embed Pods Frameworks */ = {
+		6370977C208A81ADBE884AFC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KPCharts-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KPCharts/Pods-KPCharts-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -464,7 +478,7 @@
 		};
 		0C1FC8251EF9F34700B18623 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F41C3757932298E3EF06EB29 /* Pods-KPCharts.debug.xcconfig */;
+			baseConfigurationReference = 5DF8430A218FB952CD0436DA /* Pods-KPCharts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -481,7 +495,7 @@
 		};
 		0C1FC8261EF9F34700B18623 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EC0D5AF899EB6234DFD99363 /* Pods-KPCharts.release.xcconfig */;
+			baseConfigurationReference = 7EFD3D168184A9CE29D5898B /* Pods-KPCharts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
