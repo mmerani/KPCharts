@@ -12,6 +12,8 @@ import Firebase
 class HomeScreenViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var btnMenu: UIBarButtonItem!
+    let loadingView = UIView()
+    let indicatorView = UIActivityIndicatorView()
     
     // test varibles
     
@@ -32,6 +34,16 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         navigationController?.navigationBar.tintColor = UIColor.white
+        
+        // view to show loading indicator
+        loadingView.frame = self.view.frame
+        loadingView.backgroundColor = UIColor.white
+        loadingView.bringSubview(toFront: self.view)
+        self.view.addSubview(loadingView)
+        indicatorView.center = CGPoint(x: loadingView.center.x, y: loadingView.center.y - (navigationController?.navigationBar.frame.height)! - 15)//loadingView.center
+        indicatorView.activityIndicatorViewStyle = .gray
+        self.loadingView.addSubview(indicatorView)
+        indicatorView.startAnimating()
         
         let background = UIImageView(image:UIImage(named: "mainbackground"))
         background.contentMode = .scaleAspectFill
@@ -65,6 +77,8 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
                     print("No chart data")
                 }
 
+                self.indicatorView.stopAnimating()
+                self.loadingView.removeFromSuperview()
 //                self.tableView.refreshControl?.endRefreshing()
 //                self.tableView.reloadData()
             }

@@ -11,6 +11,7 @@ import Charts
 
 class LineChartCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet weak var lineChart: LineChartView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
