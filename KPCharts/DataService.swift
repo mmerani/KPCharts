@@ -68,11 +68,12 @@ class DataService {
     func findUserCharts(uid: String ,completion : @escaping (_ snapshot : DataSnapshot , _ error : NSError?) -> Void) {
         let query =  REF_CHARTS.queryOrdered(byChild: "uid").queryEqual(toValue: uid)
         query.observe(.value, with: { (results) in
-            if results.childrenCount > 0 {
-                completion(results,nil)
-            } else {
-                print("No chart data")
-            }
+            completion(results,nil)
+//            if results.childrenCount > 0 {
+//                completion(results,nil)
+//            } else {
+//                completion(results,nil)
+//            }
         })
     }
     

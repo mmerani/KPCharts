@@ -168,6 +168,7 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
                     self.dismiss(animated: true, completion: nil)
                 })
                 alert.addAction(okAction)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateChartData"), object: nil)
                 self.present(alert, animated: true, completion: nil)
             } else {
                 print("Data not saved")

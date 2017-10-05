@@ -26,6 +26,8 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+       NotificationCenter.default.addObserver(self, selector: #selector(loadChartData), name: NSNotification.Name(rawValue: "updateChartData"), object: nil)
+        
         self.title = ""
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(selectedSignOut))
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(revealToggle:))
@@ -45,16 +47,17 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         self.loadingView.addSubview(indicatorView)
         indicatorView.startAnimating()
         
-        let background = UIImageView(image:UIImage(named: "mainbackground"))
-        background.contentMode = .scaleAspectFill
-        background.clipsToBounds = true
-        background.alpha = 0.75
-        myTableView.backgroundView = background
+//        let background = UIImageView(image:UIImage(named: "mainbackground"))
+//        background.contentMode = .scaleAspectFill
+//        background.clipsToBounds = true
+//        background.alpha = 0.75
+//        myTableView.backgroundView = background
+        
+        myTableView.backgroundColor = UIColor.darkGray
         
         myTableView.separatorStyle = .none
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         
-        myTableView.backgroundColor = UIColor.white
         myTableView.delegate = self
         myTableView.dataSource = self
       
@@ -66,6 +69,9 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     // MARK: - Actions
 
     func loadChartData(){
+        kicksArray = [DataSnapshot]()
+        kickoffsArray = [DataSnapshot]()
+        puntsArray = [DataSnapshot]()
         if let uid = UserDefaults.standard.object(forKey: "uid") {
             DataService.ds.findUserCharts(uid: uid as! String) { (snapshot, error) in
                 if snapshot.childrenCount > 0 {
@@ -133,6 +139,9 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         return 3
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (self.view.frame.height)/3
+    }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -140,6 +149,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
         
         if indexPath.row == 0 {
             cell.lblTitle.text = "Create a new chart"
+            cell.imgView.image = UIImage(named: "football")
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openChartSetup))
             tapGesture.numberOfTapsRequired = 1
             cell.addGestureRecognizer(tapGesture)
@@ -150,6 +160,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
             cell.addGestureRecognizer(tapGesture)
         } else if indexPath.row == 2 {
             cell.lblTitle.text = "See progress"
+            cell.imgView.image = UIImage(named: "business")
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openGraphs))
             tapGesture.numberOfTapsRequired = 1
             cell.addGestureRecognizer(tapGesture)

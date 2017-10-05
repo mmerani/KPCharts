@@ -21,7 +21,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        btnSignIn.layer.cornerRadius = 2;
+        btnSignIn.layer.cornerRadius = btnSignIn.frame.height/2;
         
 
     }

@@ -11,6 +11,8 @@ import UIKit
 class HomeCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var imgView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
