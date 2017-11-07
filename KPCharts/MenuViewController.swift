@@ -41,7 +41,7 @@ class MenuViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            
+            self.revealViewController().revealToggle(self)
             UserDefaults.standard.set(false, forKey: "isLoggedIn")
             UserDefaults.standard.set("",forKey: "uid")
             UserDefaults.standard.synchronize()

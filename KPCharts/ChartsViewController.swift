@@ -216,16 +216,16 @@ class ChartsViewController: UIViewController,UITableViewDelegate, UITableViewDat
         }
         delete.backgroundColor = UIColor.red
 
-        let video = UITableViewRowAction(style: .normal, title: "Video") { action, index in
-           print("Video tapped")
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let setupChart = storyBoard.instantiateViewController(withIdentifier: "videoVC") as! VideoViewController
-            self.present(setupChart, animated:false, completion:nil)
-
-            
-        }
-        video.backgroundColor = UIColor.lightGray
+//        let video = UITableViewRowAction(style: .normal, title: "Video") { action, index in
+//           print("Video tapped")
+//            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//            let setupChart = storyBoard.instantiateViewController(withIdentifier: "videoVC") as! VideoViewController
+//            self.present(setupChart, animated:false, completion:nil)
+//
+//
+//        }
+//        video.backgroundColor = UIColor.lightGray
         
-        return [delete,video]
+        return [delete]
     }
 }

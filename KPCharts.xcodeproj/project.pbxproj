@@ -106,6 +106,7 @@
 		0C1FC8141EF9F34700B18623 /* KPCharts */ = {
 			isa = PBXGroup;
 			children = (
+				0C30D33A1FAA760E00EAE21D /* Models */,
 				0C7DB32B1F1F084900CCD215 /* Libs */,
 				0C972FF01F05DF7900E4B834 /* Controllers */,
 				0CD05C001F01C4F6006EB56B /* Views */,
@@ -117,6 +118,13 @@
 				0C1238151F12B5EC00CA8C6C /* Util.swift */,
 			);
 			path = KPCharts;
+			sourceTree = "<group>";
+		};
+		0C30D33A1FAA760E00EAE21D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		0C595E781F2546850096E2FD /* SWRevealViewController */ = {

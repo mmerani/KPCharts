@@ -26,9 +26,15 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       NotificationCenter.default.addObserver(self, selector: #selector(loadChartData), name: NSNotification.Name(rawValue: "updateChartData"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadChartData), name: NSNotification.Name(rawValue: "updateChartData"), object: nil)
+
         self.title = ""
+        let titleLbl = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+        titleLbl.font = UIFont(name: "HelveticaNeue", size: 17)
+        titleLbl.textColor = UIColor.white
+        titleLbl.textAlignment = .center
+        titleLbl.text = "KP Charts"
+        self.navigationItem.titleView = titleLbl
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(selectedSignOut))
         //navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self.revealViewController(), action: #selector(revealToggle:))
         btnMenu.target = self.revealViewController()
@@ -53,8 +59,8 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
 //        background.alpha = 0.75
 //        myTableView.backgroundView = background
         
-        myTableView.backgroundColor = UIColor.darkGray
-        
+        myTableView.backgroundColor = UIColor.white //UIColor.darkGray
+        myTableView.contentInset = UIEdgeInsetsMake(3, 0, 0, 0)
         myTableView.separatorStyle = .none
         self.navigationController?.navigationBar.backgroundColor = UIColor.white
         
@@ -106,7 +112,6 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func openChartSetup() {
-        print("It worked bitch")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let setupChart = storyBoard.instantiateViewController(withIdentifier: "setupVC") as! ChartSetupController
         setupChart.providesPresentationContextTransitionStyle = true
@@ -155,6 +160,7 @@ class HomeScreenViewController: UIViewController, UITableViewDataSource, UITable
             cell.addGestureRecognizer(tapGesture)
         } else if indexPath.row == 1 {
             cell.lblTitle.text = "View saved charts"
+            cell.imgView.image = UIImage(named: "footballAndHelmet")
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openSavedCharts))
             tapGesture.numberOfTapsRequired = 1
             cell.addGestureRecognizer(tapGesture)
